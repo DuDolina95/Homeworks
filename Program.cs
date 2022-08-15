@@ -1,56 +1,52 @@
-﻿// Задача 1 Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+﻿//Задание 3 Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел
 
-int CutNumber(int number)
+void ShowCube( int n)
 {
-    int ed = number % 100;
-    int sot = ed / 10    
-    return sot;
-}
-
-int randomNumber = new Random().Next(100,1000);
-Console.WriteLine($"New version of {randomeNumber} is {newNumber}");
-
-
-// Задача 2 Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
-
-int FindTherdDigit(int number)
-{
-    while (number >= 1000)
+    int current =1;
+    while(current <= n)
     {
-        number = number / 10;
+        Console.Writeline($"Куб числа {current} = {current * current * current}");
+        current++;
     }
+}
+Console.Write("Введите любое целое число: ");
+int number = Convert.Toint32(Console.Readline());
+ShowCube(number);
 
-if(n <= 99)
+//Задание 2 Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+
+double FindDistance (double x1, double y1, double z1, double x2, double y2, double z2)
 {
-    Console.WriteLine($"У числа {number} нет третьей цифры");
+    returne Math.Sqrt(Math.Pow(x2-x1, 2) +Math.Pow(y2-y1, 2)+ Math.Pow(z2-z1, 2));
+
 }
-else
+Console.Write("Input x1: ");
+double xa = Convert.ToDouble(Console.Readline());
+Console.Write("Input y1: ");
+double xb = Convert.ToDouble(Console.Readline());
+Console.Write("Input z1: ");
+double za = Convert.ToDouble(Console.Readline());
+Console.Write("Input x2: ");
+double xb = Convert.ToDouble(Console.Readline());
+Console.Write("Input y2: ");
+double yb = Convert.ToDouble(Console.Readline());
+Console.Write("Input z2: ");
+double zb = Convert.ToDouble(Console.Readline());
+Console.Writeline($"Distance is {coordinate}");
+
+//Задача 1 Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+
+void FindPalindrome (int number)
 {
-    CutNumber = number % 10;
+ if(number%10 == number / 10000 && (number% 100) / 10 == (number / 1000)%10)
+ Console.WriteLine ($"Число {number} - полиндром");
+ else
+ Console.WriteLine ($"Число {number} - НЕ полиндром");
+    
 }
-return number;
-}
-
-Console.Write ("Введенное число: ");
-int number = Convert.ToInt32(Console.ReadLine());
-
-int ThrreeDigit = FindTherdDigit(number);
-
-Console.WriteLine ($"Третья цифра числа {number} это {Threedigit}");
-
-//Задача 3 Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
-
-void DayOff(int number)
-{
-    if (number > 0 && number <8)
-    { 
-        if (number == 6 ^ number == 7)
-        Console.WriteLine($ "День недели: {number} - Выходной день");
-        else Console.WriteLine($ "День недели: {number} - Не выходной день");
-    }
-    else Console.WriteLine($ "День недели: {number} - не Существует");
-}
-
-Console.WriteLine("Введите день недели цифрой от 1 до 7: ");
-int num = Convert.ToInt32(Console.ReadLine());
-
+Console.Write ("Введите пятизначное число: ");
+number int = Convert.ToInt32(Console.WriteLine());
+if (number> 99999 || number < 10000)
+ Console.WriteLine ($"Число {number} не является пятизначным");
+ещё
+ FindPalindrome (number);
