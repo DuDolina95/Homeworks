@@ -1,52 +1,44 @@
-﻿//Задание 3 Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел
+﻿//Задание 1 Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
-void ShowCube( int n)
+
+Math.Pow(x, stepen);
 {
-    int current =1;
-    while(current <= n)
-    {
-        Console.Writeline($"Куб числа {current} = {current * current * current}");
-        current++;
+int x = a;
+int stepen = b;
+Console.WriteLine("a*b = " + Math.Pow(x, stepen));
+}
+
+Console.Write("Введите число a: ");
+int x = Convert.Toint32(Console.Readline());
+
+Console.Write("Введите число b: ");
+int stepen = Convert.Toint32(Console.Readline());
+
+//Задание 2Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+
+int FindSum (int number)
+{
+    int Sum = 1
+    for (int current = 1; current <= number; current++)
+{
+    Sum = current + Sum;
     }
+    return Sum;
 }
-Console.Write("Введите любое целое число: ");
-int number = Convert.Toint32(Console.Readline());
-ShowCube(number);
+ Console.Write ("Введитье число");
+ int a = Convert.ToInt32 (Console.ReadLine());
+ Console.WriteLine ($"Сумма чисел от 1 до {a} = {FindSum (a)}");
 
-//Задание 2 Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
-
-double FindDistance (double x1, double y1, double z1, double x2, double y2, double z2)
+ // Задание 3 Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+ int [] CreateRandomArray(int size)
 {
-    returne Math.Sqrt(Math.Pow(x2-x1, 2) +Math.Pow(y2-y1, 2)+ Math.Pow(z2-z1, 2));
-
-}
-Console.Write("Input x1: ");
-double xa = Convert.ToDouble(Console.Readline());
-Console.Write("Input y1: ");
-double xb = Convert.ToDouble(Console.Readline());
-Console.Write("Input z1: ");
-double za = Convert.ToDouble(Console.Readline());
-Console.Write("Input x2: ");
-double xb = Convert.ToDouble(Console.Readline());
-Console.Write("Input y2: ");
-double yb = Convert.ToDouble(Console.Readline());
-Console.Write("Input z2: ");
-double zb = Convert.ToDouble(Console.Readline());
-Console.Writeline($"Distance is {coordinate}");
-
-//Задача 1 Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
-
-void FindPalindrome (int number)
-{
- if(number%10 == number / 10000 && (number% 100) / 10 == (number / 1000)%10)
- Console.WriteLine ($"Число {number} - полиндром");
- else
- Console.WriteLine ($"Число {number} - НЕ полиндром");
+    int[] newArray = new int [size];
     
+    for (int i = 0; i < size; i++)
+    {
+        Console.WriteLine("Введите элемент массива");
+        newArray[i] = Convert.ToInt32(Console.ReadLine());
+        
+    }
+    return newArray;
 }
-Console.Write ("Введите пятизначное число: ");
-number int = Convert.ToInt32(Console.WriteLine());
-if (number> 99999 || number < 10000)
- Console.WriteLine ($"Число {number} не является пятизначным");
-ещё
- FindPalindrome (number);
