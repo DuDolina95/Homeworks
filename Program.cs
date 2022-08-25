@@ -1,100 +1,44 @@
-﻿// Задача 1Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу,которая покажет количество чётных чисел в массиве.
-
-int [] CreateRandomArray(int a, int minValue, int maxValue)
+﻿// Задача 1 Пользователь вводит с клавиатуры M чисел.Посчитайте, сколько чисел больше 0 ввёл пользователь.
+int FindPositiveNumbers (int[] newarray )
 {
-    int[] newArray = new int [a];
-    for (int i = 0; i < a; i++)
-        newArray[i] = new Random().Next(minValue,maxValue + 1);
-        return newArray;
-}
-void ShowArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-        Console.Write(array[i] + " ");
-    
-    Console.WriteLine();
-}
-
-int FindEvenNumbers (int [] array)
-{
-    int count = 0;
-    for (int i = 0; i < array.Length; i++)
+ int count=0;
+ for (int i = 0; i < newarray.Length; i++)
     {
-        if (array[i] % 2 == 0)
-        count++;
+ if (newarray[i]>0) count++;
     }
-    return count;
-}
-Console.Write ("Введите длину массива: ");
-int a = Convert.ToInt32 (Console.ReadLine());
-Console.Write ("Введите минимальное число массива: ");
-int min = Convert.ToInt32 (Console.ReadLine());
-Console.Write ("Введите максимальное число массива: ");
-int max = Convert.ToInt32 (Console.ReadLine());
-int[] myArray = CreateRandomArray (a, min, max);
-ShowArray(myArray);
-Console.WriteLine ($"Количество четных чисел в массиве = {FindEvenNumbers (myArray)}");
-
-
-// Задача 2 Задайте одномерный массив,заполненный случайными числами.Найдите сумму элементов, стоящих на нечётных позициях.
-int FindSumOddNumbers (int[] array)
+ return count;
+}    
+int [] CreateArray (int M)
 {
-    int sum = 0;
-    for (int i = 0; i < array.Length; i++)
+ int [] array=new int[M]; 
+ for (int i = 0; i< M; i++)
     {
-        if (i % 2 != 0)
-        sum += array[i];
+ Console.Write($"Введите {i+1} число: ");
+ int a = Convert.ToInt32(Console.ReadLine()); 
+ array[i]=a;
     }
-    return sum;
+ return array;
 }
-Console.Write ("Введите длину массива: ");
-int a = Convert.ToInt32 (Console.ReadLine());
-Console.Write ("Введите минимальное число массива: ");
-int min = Convert.ToInt32 (Console.ReadLine());
-Console.Write ("Введите максимальное число массива: ");
-int max = Convert.ToInt32 (Console.ReadLine());
+ 
+Console.Write("Сколько чисел будите вводить?: ");
+int M = Convert.ToInt32(Console.ReadLine()); 
+int[] myArray = CreateArray (M);
+int find =FindPositiveNumbers(myArray);
+Console.WriteLine(find);
 
-int[] myArray = CreateRandomArray (a, min, max);
-ShowArray(myArray);
-Console.WriteLine ($"Сумма элементов, стоящих на нечётных позициях = {FindSumOddNumbers (myArray)}");
-Console.WriteLine ($"Сумма элементов, с нечетными индексами = {FindSumOddNumbers (myArray)}");
-
-//Задача 3 Задайте массив вещественных чисел.Найдите разницу между максимальным и минимальным элементами массива.
-double [] RandomArrayDouble(int a, int minValue, int maxValue)
+// Задача 2  Напишите программу,которая найдёт точку пересечения двух прямых,заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+void FindIntersections(double b1, double k1, double b2, double k2)
 {
-    double[] newArray = new double [a];
-    for (int i = 0; i < a; i++)
-        newArray[i] = new Random().Next(minValue,maxValue + 1);
-        return newArray;
+ double x = (b1 - b2) / (k2 - k1);
+ double y = k1 * x + b1;
+ Console.WriteLine($"Точкой пересечения будет ({x},{y})");
 }
-void ShowArrayDouble(double[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-        Console.Write(array[i] + " ");
-    
-    Console.WriteLine();
-}
-double DifferenceMaxMin (double[] array)
-{
-    double max = array[0];
-    double min = array[0];
-    
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] > max) max = array[i];
-        if (array[i] <= min) min = array[i];
-    }
-    
-    double dif = max - min;
-    return dif;
-}
-Console.Write ("Введите длину массива: ");
-int a = Convert.ToInt32 (Console.ReadLine());
-Console.Write ("Введите минимальное число массива: ");
-int min = Convert.ToInt32 (Console.ReadLine());
-Console.Write ("Введите максимальное число массива: ");
-int max = Convert.ToInt32 (Console.ReadLine());
-double[] myArray = RandomArrayDouble (a, min, max);
-ShowArrayDouble(myArray);
-Console.WriteLine ($"Разница максимального и минимального чисел в массиве = {DifferenceMaxMin (myArray)}");
-
+Console.Write("Введите первое значение первого отрезка: ");
+double b1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите второе значение первого отрезка: ");
+double k1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите первое значение второго отрезка: ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите второе значение второго отрезка: ");
+double k2 = Convert.ToDouble(Console.ReadLine());
+FindIntersections(b1, k1, b2, k2);
